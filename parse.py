@@ -17,11 +17,8 @@ for entry in data:
     # Format timestamp as YYYY-MM-DD
     timestamp = datetime.datetime.fromtimestamp(timestamp_seconds).strftime('%Y-%m-%d')
 
-    # Replace spaces, slashes, colons, and quotes with underscores in the title
-    title = entry['title'].replace(' ', '_').replace('/', '_').replace(':', '_')\
-                          .replace('"', '_').replace("'", "_").replace("!", "_")\
-                          .replace(">", "_").replace("<", "_").replace("+", "_")\
-                          .replace("\\", "_").replace("$", "_").replace("?", "_").replace("\n", "_")
+    # replace non-word characters with an underscore
+    title = re.sub('\W+', '_', entry['title'])
 
     # Create file name
     file_name = f'chats/{timestamp}_{title}.txt'
