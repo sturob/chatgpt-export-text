@@ -4,31 +4,26 @@ import os
 import re
 
 
-# Load JSON file
 with open('json-data/conversations.json', 'r') as f:
     data = json.load(f)
 
-# Check if the 'chats' subdirectory exists, if not create it
 if not os.path.exists('chats'):
     os.makedirs('chats')
 
-# Process each mapping
-for entry in data:
-    timestamp_seconds = entry['create_time']
+for chat in data:
+    timestamp_seconds = chat['create_time']
 
-    # Format timestamp as YYYY-MM-DD
+    # timestamp will be YYYY-MM-DD
     timestamp = datetime.datetime.fromtimestamp(timestamp_seconds).strftime('%Y-%m-%d')
 
-    # replace non-word characters with an underscore
-    title = re.sub('\W+', '_', entry['title'])
+    # replace non-word characters with underscores
+    title = re.sub('\W+', '_', chat['title'])
 
-    # Create file name
     file_name = f'chats/{timestamp}_{title}.txt'
 
-    # Write each mapping to a separate file
     with open(file_name, 'w') as f:
-        for mapping in entry['mapping']:
-            message = entry['mapping'][mapping]['message']
+        for mapping in chat['mapping']:
+            message = chat['mapping'][mapping]['message']
 
             # Check if message is not None
             if message is not None:
