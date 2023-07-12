@@ -1,10 +1,10 @@
-# chatgtp export to text
+# chatgpt export to text
 
-A quick python script to convert the .json chatgpt exports into plain text
+A quick python script to convert chatgpt exports from json into plain text
 
 ## Why?
 
-I want to be able to ripgrep all my chatgpt chats from the command-line
+I want to be able to ripgrep my chatgpt chats from the command-line
 
 ## How?
 
@@ -24,6 +24,7 @@ The files will be named like this:
 	2023-05-24_City_Time_CLI.txt
 	2023-05-24_Laptops_without_Management_Engine.txt
 
+The files also have their modified times datestamped correctly, for sorting by most recent.
 
 ## Needs 
 
