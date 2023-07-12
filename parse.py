@@ -3,7 +3,7 @@ import datetime
 import os
 
 # Load JSON file
-with open('data/conversations.json', 'r') as f:
+with open('json-data/conversations.json', 'r') as f:
     data = json.load(f)
 
 # Check if the 'chats' subdirectory exists, if not create it
