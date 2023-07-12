@@ -30,7 +30,7 @@ for chat in data:
                 # Check if author is not None and get the role
                 if message['author'] is not None:
                     role = message['author']['role']
-                    f.write(f'#-# {role}\n')
+                    f.write(f'# {role}:\n')
 
                 # Check if content is not None and get the parts
                 if message['content'] is not None and 'parts' in message['content']:
