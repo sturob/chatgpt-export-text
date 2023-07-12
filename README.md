@@ -1,29 +1,34 @@
 # chatgtp export to text
 
-a quick python script to convert the .json chatgpt exports into plain text
+A quick python script to convert the .json chatgpt exports into plain text
 
-## why?
+## Why?
 
 I want to be able to ripgrep all my chatgpt chats from the command-line
 
-## how?
+## How?
 
-get your archive @ https://chat.openai.com/ > ... > Data Controls > Export
+Get your archive from: https://chat.openai.com/ > ... > Data Controls > Export
 
-then:
+Then, extract the zip file that OpenAI made for you:
 
 	$ make extract
 
-will extract the json from the .zip openai send
+Populate a directory named chats/ with one text file per chat:
 
 	$ make parse
 
-will create a directory chats/ containing datestamped and titled .txt files, one per chat.
+The files will be named like this:
 
-## needs 
+	2023-05-24_Baltic_Dry_Index_Surge.txt
+	2023-05-24_City_Time_CLI.txt
+	2023-05-24_Laptops_without_Management_Engine.txt
+
+
+## Needs 
 
 - python3
 
-## see also
+## See also
 
 https://github.com/daugaard47/ChatGPT_Conversations_To_Markdown
