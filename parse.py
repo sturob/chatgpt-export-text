@@ -1,6 +1,8 @@
 import json
 import datetime
 import os
+import re
+
 
 # Load JSON file
 with open('json-data/conversations.json', 'r') as f:
@@ -36,7 +38,7 @@ for entry in data:
                     f.write(f'#-# {role}\n')
 
                 # Check if content is not None and get the parts
-                if message['content'] is not None:
+                if message['content'] is not None and 'parts' in message['content']:
                     parts = message['content']['parts']
                     for part in parts:
                         # Replace \n with actual new line
