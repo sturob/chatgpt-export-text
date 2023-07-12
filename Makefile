@@ -13,6 +13,10 @@ extract: ## extract the zip file from OpenAI
 	@unzip *.zip -d json-data/
 .PHONY: extract
 
+format-json: ## not needed but useful for debugging 
+	@jq . json-data/conversations.json > json-data/formatted-conversations.json
+.PHONY: format-json
+
 parse: ## json2text - output goes in chats/
 	@python3 parse.py
 .PHONY: parse
