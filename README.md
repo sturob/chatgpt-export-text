@@ -1,4 +1,4 @@
-# chatgpt export to text
+# chatgpt-exports to text
 
 A quick python script to convert chatgpt exports from json into plain text
 
@@ -24,7 +24,7 @@ The files will be named like this:
 	2023-05-24_City_Time_CLI.txt
 	2023-05-24_Laptops_without_Management_Engine.txt
 
-The files also have their modified times datestamped correctly, for sorting by most recent.
+The files also have their modified times set correctly, for sorting by most recent.
 
 ## Needs 
 
