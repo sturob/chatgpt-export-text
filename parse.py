@@ -36,9 +36,22 @@ for chat in data:
                 if message['content'] is not None and 'parts' in message['content']:
                     parts = message['content']['parts']
                     for part in parts:
-                        # Replace \n with actual new line
-                        part = part.replace('\\n', '\n')
-                        f.write(f'{part}\n')
+                        # If part is a string, replace \n with an actual newline
+                        if isinstance(part, str):
+                            part = part.replace('\\n', '\n')
+                            f.write(f'{part}\n')
+                        # If part is a dictionary, handle it according to its structure
+                        elif isinstance(part, dict):
+                            # Example: Assuming the text content is under a 'text' key
+                            if 'text' in part:
+                                text = part['text'].replace('\\n', '\n')
+                                f.write(f'{text}\n')
+                            # Add image handler here
+
+                    # for part in parts:
+                    #     # Replace \n with actual new line
+                    #     part = part.replace('\\n', '\n')
+                    #     f.write(f'{part}\n')
 
             # Separate mappings with a couple of new lines
             f.write('\n')
